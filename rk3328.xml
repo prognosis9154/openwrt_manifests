@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote
+    name="origin"
+    fetch="."
+    revision="refs/heads/master" />
+
+  <remote
+    name="friendlywrt"
+    fetch="https://github.com/friendlyarm/"
+    revision="refs/heads/master" />
+  
+  <remote
+    name="openwrt"
+    fetch="https://github.com/openwrt/"
+    revision="refs/heads/master" />
+
+  <project path="kernel" name="kernel-rockchip" remote="friendlywrt" revision="refs/heads/nanopi-r2-v6.1.y" />
+  <project path="u-boot" name="uboot-rockchip" remote="friendlywrt" revision="refs/heads/nanopi-r2-v2017.09" />
+  <project path="rkbin" name="rkbin" remote="friendlywrt" revision="refs/heads/friendlyelec" />
+
+  <project path="scripts/sd-fuse" name="sd-fuse_rk3328" remote="origin" revision="refs/heads/kernel-6.1.y">
+	  <linkfile dest="out" src="out"/>
+  </project>
+
+  <!-- friendlyelec device configs -->
+  <project path="device/common" name="friendlywrt_device_common" remote="friendlywrt" revision="refs/heads/master" />
+  <project path="device/friendlyelec" name="friendlywrt_device_rk3328" remote="origin" revision="refs/heads/master-v24.10" />
+  <project path="configs" name="openwrt_configs" remote="origin" revision="refs/heads/master-v24.10" />
+
+  <!-- friendlyelec scripts -->
+  <project path="scripts" name="friendlywrt_scripts" remote="origin">
+	  <linkfile dest="build.sh" src="build.sh"/>
+  </project>
+
+  <!-- friendlywrt source code -->
+  <project path="openwrt" name="openwrt" remote="openwrt" revision="refs/heads/openwrt-24.10" />
+
+  <!-- toolchain -->
+  <project path="toolchain" name="prebuilts" remote="friendlywrt" revision="refs/heads/master" />
+</manifest>
